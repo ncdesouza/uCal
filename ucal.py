@@ -136,14 +136,11 @@ class UCal:
         return True
 
     def go_to_schedule(self):
-        self.browser.click_link_by_href(
-            '/cp/render.UserLayoutRootNode.uP?uP_tparam=utf'
-            '&utf=/cp/school/sctmain')
+
+        self.browser.click_link_by_partial_text('Student detailed schedule')
 
         with self.browser.get_iframe('content') as iframe:
             try:
-                iframe.click_link_by_partial_text('Student')
-                iframe.click_link_by_partial_text('Registration')
                 iframe.click_link_by_partial_text('Student Detail Schedule')
             except Exception:
                 return False

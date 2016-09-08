@@ -1,10 +1,9 @@
 from ucal import UCal
-from gcal import GCal, Event
 from gui import GUI
 
 def main():
     ucal = UCal()
-    gui = GUI(ucal.start)
+    gui = GUI(ucal.start, None)
     gui.master.title('uCal - Import your UOIT schedule to google calendar')
     gui.mainloop()
 

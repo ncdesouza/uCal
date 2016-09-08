@@ -61,8 +61,8 @@ class GCal:
         store = oauth2client.file.Storage(credential_path)
         credentials = store.get()
         if not credentials or credentials.invalid:
-            flow = client.flow_from_clientsecrets(self.CLIENT_SECRET_FILE,
-                                                  self.SCOPES)
+
+            flow = client.flow_from_clientsecrets(self.CLIENT_SECRET_FILE, self.SCOPES)
 
             flow.user_agent = self.APPLICATION_NAME
             if self.flags:
