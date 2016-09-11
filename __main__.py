@@ -3,7 +3,7 @@ from gui import GUI
 
 def main():
     ucal = UCal()
-    gui = GUI(ucal.start, None)
+    gui = GUI(ucal.start, ucal.clear_all)
     gui.master.title('uCal - Import your UOIT schedule to google calendar')
     gui.mainloop()
 
