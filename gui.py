@@ -237,7 +237,7 @@ class GUI(tk.Frame):
             event_files = os.listdir(resource_path('events'))
             for ef in reversed(event_files):
                 term = self.get_term()
-                print(ef[-11:-5], term, self.term_var.get())
+                # print(ef[-11:-5], term, self.term_var.get())
                 if ef[-11:-5] == term:
                     self.disable_term(self.term_var.get())
 

@@ -18,8 +18,8 @@ class Class:
         self.meeting_times.append(meeting_time)
 
     def __repr__(self):
-        time_str = '{0:^4} {1:^6} {2:^20} {3:^3} {4:^30} {5:^30} {6:^15} ' \
-                   '{7:^25}\n'.format('Week', 'Type', 'Time', 'Day', 'Where',
+        time_str = '{0:^4} {1:^20} {2:^3} {3:^30} {4:^30} {5:^15} ' \
+                   '{6:^25}\n'.format('Week', 'Time', 'Day', 'Where',
                                       'Date Range', 'Schedule Type', 'Instructor')
         for meeting_time in self.meeting_times:
             time_str += str(meeting_time)
@@ -35,10 +35,9 @@ class Class:
 
 
 class MeetingTime:
-    def __init__(self, week, type_, time, day, where, date_range,
+    def __init__(self, week, time, day, where, date_range,
                  schedule_type, instructors):
         self.week = week
-        self.type = type_
         self.time = time
         self.day = day
         self.where = where
@@ -47,8 +46,8 @@ class MeetingTime:
         self.instructors = instructors
 
     def __repr__(self):
-        return '{0:^4} {1:^6} {2:^20} {3:^3} {4:^30} {5:^30} {6:^15} {7:^25}' \
-               '\n'.format(self.week, self.type, self.time, self.day,
+        return '{0:^4} {1:^20} {2:^3} {3:^30} {4:^30} {5:^15} {6:^25}' \
+               '\n'.format(self.week, self.time, self.day,
                            self.where, self.date_range, self.schedule_type,
                            self.instructors)
 
@@ -108,8 +107,8 @@ class RecurringEvent(Event):
             #                                    start_date.minute)
             #     rec_dates = self.build_recurring_dates([weird_date])
             #     return [rec_rules, rec_dates, rec_excep]
-            # if start_date.weekday() == 4 and start_date.year == 2016 and 1 <= start_date.month <= 4:
-            #     weird_date = datetime.datetime(2016, 4, 11, start_date.hour, start_date.minute)
+            # if start_date.weekday() == 4 and start_date.year == 2018 and 1 <= start_date.month <= 4:
+            #     weird_date = datetime.datetime(2016, 4, 9, start_date.hour, start_date.minute)
             #     rec_dates = self.build_recurring_dates([weird_date])
             #     return [rec_rules, rec_dates, rec_excep]
 
@@ -138,18 +137,22 @@ class RecurringEvent(Event):
 
     def build_recurring_exception(self, start):
         assert isinstance(start, datetime.datetime)
-        excep1 = datetime.datetime(2016, 10, 10, start.hour, start.minute)
-        excep3 = datetime.datetime(2017, 2, 20, start.hour, start.minute)
-        excep4 = datetime.datetime(2017, 2, 21, start.hour, start.minute)
-        excep5 = datetime.datetime(2017, 2, 22, start.hour, start.minute)
-        excep6 = datetime.datetime(2017, 2, 23, start.hour, start.minute)
-        excep7 = datetime.datetime(2017, 2, 24, start.hour, start.minute)
-        excep8 = datetime.datetime(2017, 2, 25, start.hour, start.minute)
-        excep9 = datetime.datetime(2017, 2, 26, start.hour, start.minute)
-        excep10 = datetime.datetime(2017, 4, 14, start.hour, start.minute)
+        excep1 = datetime.datetime(2017, 10, 9, start.hour, start.minute)
+        excep3 = datetime.datetime(2017, 10, 26, start.hour, start.minute)
+        excep4 = datetime.datetime(2017, 10, 27, start.hour, start.minute)
+        excep5 = datetime.datetime(2017, 10, 28, start.hour, start.minute)
+        excep6 = datetime.datetime(2017, 10, 29, start.hour, start.minute)
+        excep7 = datetime.datetime(2018, 2, 19, start.hour, start.minute)
+        excep8 = datetime.datetime(2017, 2, 20, start.hour, start.minute)
+        excep9 = datetime.datetime(2017, 2, 21, start.hour, start.minute)
+        excep10 = datetime.datetime(2017, 4, 22, start.hour, start.minute)
+        excep11 = datetime.datetime(2017, 4, 23, start.hour, start.minute)
+        excep12 = datetime.datetime(2017, 4, 24, start.hour, start.minute)
+        excep13 = datetime.datetime(2017, 4, 25, start.hour, start.minute)
 
         excep_dates = [excep1, excep3, excep4, excep5, excep6,
-                       excep7, excep8, excep9, excep10]
+                       excep7, excep8, excep9, excep10, excep11,
+                       excep12, excep13]
         except_str = 'EXDATE;TZID=America/Toronto:'
         for date in excep_dates[:-1]:
             except_str += self.date_to_datetime_string(date) + ','

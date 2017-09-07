@@ -191,7 +191,7 @@ class UCal:
                     for field in fields:
                         if field.has_class('dbdefault'):
                             text += (field.text,)
-                    if len(text) == 8:
+                    if len(text) == 7:
                         cls.add_meeting_time(MeetingTime(*text))
 
                 class_data.append(cls)
