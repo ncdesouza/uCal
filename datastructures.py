@@ -107,10 +107,10 @@ class RecurringEvent(Event):
             #                                    start_date.minute)
             #     rec_dates = self.build_recurring_dates([weird_date])
             #     return [rec_rules, rec_dates, rec_excep]
-            # if start_date.weekday() == 4 and start_date.year == 2018 and 1 <= start_date.month <= 4:
-            #     weird_date = datetime.datetime(2016, 4, 9, start_date.hour, start_date.minute)
-            #     rec_dates = self.build_recurring_dates([weird_date])
-            #     return [rec_rules, rec_dates, rec_excep]
+            if start_date.weekday() == 4 and start_date.year == 2018 and 1 <= start_date.month <= 4:
+                weird_date = datetime.datetime(2016, 4, 9, start_date.hour, start_date.minute)
+                rec_dates = self.build_recurring_dates([weird_date])
+                return [rec_rules, rec_dates, rec_excep]
 
             return [rec_rules, rec_excep]
         elif recurring_dates:
@@ -143,16 +143,15 @@ class RecurringEvent(Event):
         excep5 = datetime.datetime(2017, 10, 28, start.hour, start.minute)
         excep6 = datetime.datetime(2017, 10, 29, start.hour, start.minute)
         excep7 = datetime.datetime(2018, 2, 19, start.hour, start.minute)
-        excep8 = datetime.datetime(2017, 2, 20, start.hour, start.minute)
-        excep9 = datetime.datetime(2017, 2, 21, start.hour, start.minute)
-        excep10 = datetime.datetime(2017, 4, 22, start.hour, start.minute)
-        excep11 = datetime.datetime(2017, 4, 23, start.hour, start.minute)
-        excep12 = datetime.datetime(2017, 4, 24, start.hour, start.minute)
-        excep13 = datetime.datetime(2017, 4, 25, start.hour, start.minute)
+        excep8 = datetime.datetime(2018, 2, 20, start.hour, start.minute)
+        excep9 = datetime.datetime(2018, 2, 21, start.hour, start.minute)
+        excep10 = datetime.datetime(2018, 2, 22, start.hour, start.minute)
+        excep11 = datetime.datetime(2018, 2, 23, start.hour, start.minute)
+        excep12 = datetime.datetime(2018, 3, 30, start.hour, start.minute)
 
         excep_dates = [excep1, excep3, excep4, excep5, excep6,
                        excep7, excep8, excep9, excep10, excep11,
-                       excep12, excep13]
+                       excep12]
         except_str = 'EXDATE;TZID=America/Toronto:'
         for date in excep_dates[:-1]:
             except_str += self.date_to_datetime_string(date) + ','

@@ -1,6 +1,7 @@
 from ucal import UCal
 from gui import GUI
 
+
 def main():
     ucal = UCal()
     gui = GUI(ucal.start, ucal.clear_all)
